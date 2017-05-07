@@ -1,13 +1,20 @@
-package com.example.user;
+package com.example.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class User {
 
+    //TODO Have to I create set of projects? Or I must create set if I marked username as @JsonIgnore
     @Id
+    @GeneratedValue
     private long id;
+
+    @JsonIgnore
     private String username;
     private String password;
 
@@ -15,8 +22,7 @@ public class User {
 
     }
 
-    public User(long id, String username, String password) {
-        this.id = id;
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }

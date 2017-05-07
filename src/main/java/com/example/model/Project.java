@@ -1,22 +1,22 @@
-package com.example.project;
+package com.example.model;
 
-
-import com.example.user.User;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 
 @Entity
 public class Project {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
 
-    @OneToMany
+    @ManyToOne
     private User user;
 
 
@@ -24,8 +24,7 @@ public class Project {
 
     }
 
-    public Project(Long id, String name, User user) {
-        this.id = id;
+    public Project(String name, User user) {
         this.name = name;
         this.user = user;
     }
